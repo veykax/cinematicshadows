@@ -4,76 +4,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Archive | Cinematic Shadows</title>
-    <link rel="stylesheet" href="style/style.css">
+    <meta name="view-transition" content="same-origin">
+    <title>Cinematic Shadows | Archive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body>
+<body class="dark-mode">
+    <div id="preloader"><div class="loader-text">LOADING...</div></div>
+    <div class="cursor"><span class="cursor-label"></span></div>
+    <div class="cursor-follower"></div>
+
     <header>
         <nav>
-            <a href="index.html" data-lang="nav_home">Home</a>
-            <a href="archive.html" data-lang="nav_archive">The Archive</a>
-            <a href="credits.html" data-lang="nav_credits">Credits</a>
-            <button id="lang-switch" class="lang-btn">ENG</button>
+            <a href="index.html" class="logo" data-lang-key="site_logo">CINEMATIC SHADOWS</a>
+            <ul class="nav-links">
+                <li><a href="index.html" data-lang-key="nav_home">Головна</a></li>
+                <li><a href="archive.html" data-lang-key="nav_archive">Архів</a></li>
+                <li><a href="news.html" data-lang-key="nav_news">Новини</a></li>
+                <li><a href="credits.html" data-lang-key="nav_credits">Творці</a></li>
+            </ul>
+            <div class="lang-switcher">
+                <button id="lang-toggle" class="btn-lang">ENG</button>
+            </div>
         </nav>
     </header>
 
     <main>
-        <h1 class="page-title" style="text-align: center;" data-lang="archive_title">The <span>Archive</span></h1>
-        <div class="games-grid">
-            <article class="game-card re">
-                <div class="card-image"><img src="images/re.jpg" alt="Resident Evil"></div>
-                <div class="game-info">
-                    <h2>Resident Evil</h2>
-                    <p data-lang="re_desc">Сюжет розгортається в Раккун-Сіті, охопленому зомбі-вірусом після витоку з
-                        лабораторій корпорації Umbrella...</p>
-                </div>
-            </article>
-            <article class="game-card tlou">
-                <div class="card-image"><img src="images/tlou.jpg" alt="The Last of Us"></div>
-                <div class="game-info">
-                    <h2>The Last of Us</h2>
-                    <p data-lang="tlou_desc">Історія Джоела та Еллі, які перетинають постапокаліптичні Штати через
-                        двадцять років після пандемії...</p>
-                </div>
-            </article>
-            <article class="game-card cyberpunk">
-                <div class="card-image"><img src="images/cyberpunk.jpg" alt="Cyberpunk 2077"></div>
-                <div class="game-info">
-                    <h2>Cyberpunk 2077</h2>
-                    <p data-lang="cp_desc">Ви берете на себе роль Ві, найманця з Найт-Сіті, чия свідомість починає
-                        повільно стиратися цифровим привидом Джонні...</p>
-                </div>
-            </article>
-            <article class="game-card ghost">
-                <div class="card-image"><img src="images/got.jpg" alt="Ghost of Tsushima"></div>
-                <div class="game-info">
-                    <h2>Ghost of Tsushima</h2>
-                    <p data-lang="got_desc">Сюжет переносить у 1274 рік на острів Цусіма під час монгольської навали.
-                        Самурай Дзін Сакай змушений переглянути свої погляди...</p>
-                </div>
-            </article>
-            <article class="game-card metro">
-                <div class="card-image"><img src="images/metro.jpg" alt="Metro Exodus"></div>
-                <div class="game-info">
-                    <h2>Metro</h2>
-                    <p data-lang="metro_desc">Глобальна ядерна війна змусила вцілілих переселитися в глибини
-                        метрополітену. Сюжет розповідає про Артема...</p>
-                </div>
-            </article>
-            <article class="game-card elden">
-                <div class="card-image"><img src="images/elden.jpg" alt="Elden Ring"></div>
-                <div class="game-info">
-                    <h2>Elden Ring</h2>
-                    <p data-lang="elden_desc">Історія Міжзем’я, де після руйнування Кільця Елден та зникнення королеви
-                        Маріки почалися війни між її напівбогами...</p>
-                </div>
-            </article>
-        </div>
+        <section class="archive-section">
+            <h2 class="section-title reveal">
+                <span class="white" data-lang-key="archive_title_white">ІГРОВИЙ</span> <span class="red"
+                    data-lang-key="archive_title_red">АРХІВ</span>
+            </h2>
+
+            <div class="search-container reveal" style="max-width: 600px; margin: 0 auto 4rem; position: relative;">
+                <input type="text" id="game-search" placeholder="Search games..." style="width: 100%; padding: 1rem 1.5rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-md); color: var(--white); font-size: 1.1rem; outline: none; transition: border-color 0.3s ease;">
+            </div>
+
+            <div id="games-grid" class="games-grid">
+                <!-- Cards will be rendered dynamically by script.js -->
+            </div>
+        </section>
     </main>
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
-    <script src="js/script.js"></script>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 <span class="red">Cinematic Shadows</span>. <span data-lang-key="footer_rights">Всі права
+                    захищено.</span></p>
+        </div>
+    </footer>
+
+    <script src="js/script.js" type="module"></script>
 </body>
 
 </html>

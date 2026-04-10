@@ -4,35 +4,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cinematic Shadows</title>
-    <link rel="stylesheet" href="style/style.css">
+    <meta name="view-transition" content="same-origin">
+    <title>Cinematic Shadows | Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body>
+<body class="dark-mode">
+    <div id="preloader"><div class="loader-text">LOADING...</div></div>
+    <div class="cursor"><span class="cursor-label"></span></div>
+    <div class="cursor-follower"></div>
+
     <header>
         <nav>
-            <a href="index.html" data-lang="nav_home">Home</a>
-            <a href="archive.html" data-lang="nav_archive">The Archive</a>
-            <a href="credits.html" data-lang="nav_credits">Credits</a>
-            <button id="lang-switch" class="lang-btn">ENG</button>
+            <a href="index.html" class="logo" data-lang-key="site_logo">CINEMATIC SHADOWS</a>
+            <ul class="nav-links">
+                <li><a href="index.html" data-lang-key="nav_home">Головна</a></li>
+                <li><a href="archive.html" data-lang-key="nav_archive">Архів</a></li>
+                <li><a href="news.html" data-lang-key="nav_news">Новини</a></li>
+                <li><a href="credits.html" data-lang-key="nav_credits">Творці</a></li>
+            </ul>
+            <div class="lang-switcher">
+                <button id="lang-toggle" class="btn-lang">ENG</button>
+            </div>
         </nav>
     </header>
 
-    <main style="padding: 0; max-width: 100%;">
+    <main>
         <section class="hero">
-            <h1 data-lang="hero_title">Cinematic <span>Shadows</span></h1>
-            <p data-lang="hero_subtitle">Кожна гра - це подорож у невідоме. Поглянь крізь тіні на шедеври, які змінили
-                індустрію назавжди.</p>
+            <div class="hero-bg"
+                style="background-image: linear-gradient(to bottom, rgba(10, 10, 12, 0.4), var(--bg-main)), url('assets/elden-bg.jpg');">
+            </div>
+            <div class="hero-content reveal">
+                <h1 class="split-title">
+                    <span class="white" data-lang-key="hero_title_white">CINEMATIC</span> <span class="red"
+                        data-lang-key="hero_title_red">SHADOWS</span>
+                </h1>
+                <p data-lang-key="hero_subtitle">ІМЕРСИВНИЙ ГЕЙМІНГОВИЙ ПОРТФОЛІО</p>
+                <div class="cta-container">
+                    <a href="archive.html" class="btn-primary" data-lang-key="cta_explore">ДОСЛІДИТИ</a>
+                </div>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p style="font-size: 0.8rem; letter-spacing: 2px; color: #444;">DATA_STREAM // SECTOR_04 // 2026</p>
+        <div class="footer-content">
+            <p>&copy; 2026 <span class="red">Cinematic Shadows</span>. <span data-lang-key="footer_rights">Всі права
+                    захищено.</span></p>
+        </div>
     </footer>
 
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
-    <script src="js/script.js"></script>
+    <script src="js/script.js" type="module"></script>
 </body>
 
 </html>
