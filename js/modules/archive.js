@@ -3,6 +3,7 @@
  */
 
 import { gamesData } from '../games-data.js';
+import { collectionsData } from '../collections-data.js';
 
 class ArchiveManager {
     constructor() {
@@ -23,19 +24,67 @@ class ArchiveManager {
         if (!this.grid || !dict) return;
 
         try {
-            this.grid.innerHTML = Object.keys(gamesData).map(id => {
-                const game = gamesData[id];
-                const desc = dict[game.descKey] || '';
+            // Get IDs of games that are in collections
+            const collectionGameIds = new Set();
+            Object.values(collectionsData).forEach(col => {
+                col.games.forEach(gameId => collectionGameIds.add(gameId));
+            });
+
+            // Render collections first
+            const collectionsHTML = Object.keys(collectionsData).map(id => {
+                const collection = collectionsData[id];
+                const desc = lang === 'uk' ? collection.descriptionUk : collection.descriptionEn;
+                const gamesCount = collection.games.length;
                 return `
-                    <article class="game-card reveal" data-game="${id}">
-                        <div class="card-image" style="background-image: url('${game.cardImage}')"></div>
+                    <article class="game-card reveal collection-card" data-collection="${id}">
+                        <div class="collection-badge">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                            </svg>
+                            ${gamesCount} ${dict.label_games || 'games'}
+                        </div>
+                        <div class="card-image" style="background-image: url('${collection.cardImage}')"></div>
                         <div class="card-info">
-                            <h3 class="game-title">${game.title}</h3>
+                            <h3 class="game-title">${collection.title}</h3>
                             <p class="game-desc">${desc}</p>
                         </div>
                     </article>
                 `;
             }).join('');
+
+            // Render standalone games (games not in collections)
+            const standaloneGamesHTML = Object.keys(gamesData)
+                .filter(id => !collectionGameIds.has(id))
+                .map(id => {
+                    const game = gamesData[id];
+                    const desc = dict[game.descKey] || '';
+                    return `
+                        <article class="game-card reveal" data-game="${id}">
+                            <div class="card-image" style="background-image: url('${game.cardImage}')"></div>
+                            <div class="card-info">
+                                <h3 class="game-title">${game.title}</h3>
+                                <p class="game-desc">${desc}</p>
+                            </div>
+                        </article>
+                    `;
+                }).join('');
+
+            this.grid.innerHTML = collectionsHTML + standaloneGamesHTML;
+
+            // Add click handlers
+            this.grid.querySelectorAll('.collection-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const collectionId = card.dataset.collection;
+                    window.location.href = `collection.html?id=${collectionId}`;
+                });
+            });
+
+            this.grid.querySelectorAll('.game-card:not(.collection-card)').forEach(card => {
+                card.addEventListener('click', () => {
+                    const gameId = card.dataset.game;
+                    window.location.href = `game.html?id=${gameId}`;
+                });
+            });
 
             setTimeout(() => {
                 import('./scroll.js').then(({ scroll }) => {

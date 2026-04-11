@@ -424,6 +424,40 @@ nav {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
+/* Collection Badge */
+.collection-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+    background: rgba(var(--accent-rgb), 0.9);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.collection-badge svg {
+    width: 14px;
+    height: 14px;
+}
+
+.collection-card {
+    cursor: pointer;
+}
+
+.collection-card:hover {
+    border-color: var(--accent);
+}
+
 .card-image {
     aspect-ratio: 2/3;
     min-height: 450px;

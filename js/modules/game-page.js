@@ -32,30 +32,71 @@ class GamePageManager {
         const features = lang === 'uk' ? data.featuresUk : data.featuresEn;
         const reviewQuote = lang === 'uk' ? data.review.quoteUk : data.review.quoteEn;
 
+        // Get genres if available
+        const genres = data.genres || [];
+
+        // Get screenshots (use from data or fallback to card/hero images)
+        const screenshots = data.screenshots || [data.cardImage, data.heroImage];
+
         document.title = `${dict.doc_brand} | ${data.title}`;
 
         this.container.innerHTML = `
             <section class="game-detail-hero" style="background-image: url('${data.heroImage}')">
                 <div class="hero-content-inner reveal active">
-                    <p class="game-page-subtitle" style="color: ${data.color}">${subtitle}</p>
+                    <p class="game-page-subtitle">${subtitle}</p>
                     <h1 class="game-page-title">${data.title}</h1>
+                    ${genres.length > 0 ? `
+                        <div class="genre-tags">
+                            ${genres.map(genre => `<span class="genre-tag">${genre}</span>`).join('')}
+                        </div>
+                    ` : ''}
+                </div>
+            </section>
+
+            <section class="game-quick-stats">
+                <div class="quick-stat">
+                    <span class="quick-stat-label">${dict.label_release}</span>
+                    <span class="quick-stat-value">${data.release}</span>
+                </div>
+                <div class="quick-stat">
+                    <span class="quick-stat-label">${dict.label_developer}</span>
+                    <span class="quick-stat-value">${data.developer}</span>
+                </div>
+                ${genres.length > 0 ? `
+                    <div class="quick-stat">
+                        <span class="quick-stat-label">Genre</span>
+                        <span class="quick-stat-value">${genres[0]}</span>
+                    </div>
+                ` : ''}
+                <div class="quick-stat">
+                    <span class="quick-stat-label">${dict.label_platforms}</span>
+                    <span class="quick-stat-value">PC, PS5, XBOX</span>
                 </div>
             </section>
 
             <section class="game-info-grid">
                 <div class="info-block reveal active">
-                    <h2 style="border-color: ${data.color}">${dict.label_about}</h2>
+                    <h2>${dict.label_about}</h2>
                     <p class="info-text">${dict[data.descKey]}</p>
-                    <h2 style="border-color: ${data.color}">${dict.label_features}</h2>
-                    <div class="features-list" style="margin-bottom: 3rem;">
+
+                    <h2>${dict.label_features}</h2>
+                    <div class="features-list">
                         ${features.map(f => `
                             <div class="feature-item">
-                                <span class="feature-dot" style="background: ${data.color}"></span>
+                                <span class="feature-dot"></span>
                                 ${f}
                             </div>
                         `).join('')}
                     </div>
-                    <h2 style="border-color: ${data.color}">${dict.label_sysreq}</h2>
+
+                    <h2>${dict.label_gallery}</h2>
+                    <div class="gallery-grid">
+                        ${screenshots.map((img, i) => `
+                            <img src="${img}" class="gallery-thumb" alt="${data.title} screenshot ${i+1}" loading="lazy">
+                        `).join('')}
+                    </div>
+
+                    <h2>${dict.label_sysreq}</h2>
                     <div class="system-req">
                         <div style="margin-bottom: 1.5rem;">
                             <p class="meta-label">${dict.label_min}</p>
@@ -69,31 +110,37 @@ class GamePageManager {
                 </div>
 
                 <div class="info-block reveal active">
-                    <div class="review-box" style="margin-bottom: 3rem; background: var(--bg-card); padding: 2.5rem; border-left: 4px solid ${data.color}; border-radius: 0 var(--radius-md) var(--radius-md) 0;">
+                    <div class="review-box">
                         <p class="meta-label">${dict.label_accolades}</p>
-                        <h3 style="font-size: 2.5rem; margin: 1rem 0; color: ${data.color}; line-height: 1;">${data.review.score}</h3>
+                        <h3 style="font-size: 2.5rem; margin: 1rem 0; color: var(--accent); line-height: 1;">${data.review.score}</h3>
                         <p class="info-text" style="font-style: italic; margin-bottom: 1rem;">${reviewQuote}</p>
                         <p class="meta-label" style="text-align: right; color: var(--white);">${data.review.source}</p>
                     </div>
 
                     <div class="meta-list">
-                        <div class="meta-item"><p class="meta-label">${dict.label_release}</p><p class="meta-value">${data.release}</p></div>
-                        <div class="meta-item"><p class="meta-label">${dict.label_developer}</p><p class="meta-value">${data.developer}</p></div>
-                        <div class="meta-item"><p class="meta-label">${dict.label_edition}</p><p class="meta-value">${data.edition}</p></div>
-                        <div class="meta-item" style="margin-bottom: 0;"><p class="meta-label">${dict.label_platforms}</p><p class="meta-value">PC, PS5, XBOX</p></div>
-                    </div>
-
-                    <h2 style="border-color: ${data.color}; margin-top: 3rem;">${dict.label_gallery}</h2>
-                    <div class="gallery-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 3rem;">
-                        <img src="${data.cardImage}" class="gallery-thumb" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.4s var(--ease-smooth); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);">
-                        <img src="${data.heroImage}" class="gallery-thumb" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.4s var(--ease-smooth); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);">
+                        <div class="meta-item">
+                            <p class="meta-label">${dict.label_release}</p>
+                            <p class="meta-value">${data.release}</p>
+                        </div>
+                        <div class="meta-item">
+                            <p class="meta-label">${dict.label_developer}</p>
+                            <p class="meta-value">${data.developer}</p>
+                        </div>
+                        <div class="meta-item">
+                            <p class="meta-label">${dict.label_edition}</p>
+                            <p class="meta-value">${data.edition}</p>
+                        </div>
+                        <div class="meta-item">
+                            <p class="meta-label">${dict.label_platforms}</p>
+                            <p class="meta-value">PC, PS5, XBOX</p>
+                        </div>
                     </div>
 
                     <div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem;">
-                        <a href="game.html?id=${data.nextGame}" class="btn-primary" style="width: 100%; text-align: center; background: transparent; border: 1px solid ${data.color}; box-shadow: none;">
+                        <a href="game.html?id=${data.nextGame}" class="btn-primary" style="width: 100%; text-align: center; background: transparent; border: 1px solid var(--accent); box-shadow: none;">
                             ${dict.btn_next}: ${nextData.title}
                         </a>
-                        <a href="archive.html" class="btn-primary" style="width: 100%; text-align: center; background: ${data.color}; box-shadow: 0 10px 30px ${data.color}44;">
+                        <a href="archive.html" class="btn-primary" style="width: 100%; text-align: center; background: var(--accent); box-shadow: 0 10px 30px rgba(var(--accent-rgb), 0.3);">
                             ${dict.btn_back}
                         </a>
                     </div>
