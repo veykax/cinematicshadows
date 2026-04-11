@@ -8,12 +8,17 @@
     <title>Cinematic Shadows | Credits</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/page-styles.css">
 </head>
 
 <body class="dark-mode">
-    <div id="preloader"><div class="loader-text">LOADING...</div></div>
+    <div class="scroll-progress"></div>
+    <div id="preloader">
+        <div class="preloader-logo-text">CINEMATIC<br><span class="red">SHADOWS</span></div>
+        <div class="preloader-bar"><div class="preloader-bar-fill"></div></div>
+    </div>
     <div class="cursor"><span class="cursor-label"></span></div>
     <div class="cursor-follower"></div>
 
@@ -33,51 +38,119 @@
     </header>
 
     <main>
-        <section class="credits-section">
-            <h2 class="section-title reveal">
-                <span class="white" data-lang-key="credits_title_white">НАША</span> <span class="red"
-                    data-lang-key="credits_title_red">ПРИСТРАСТЬ</span>
-            </h2>
-
-            <div class="about-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom: 5rem;">
-                <div class="reveal">
-                    <h3 style="font-size: 1.5rem; color: var(--accent); margin-bottom: 1.5rem; letter-spacing: 2px;" data-lang-key="about_phil_title">ФІЛОСОФІЯ</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-muted);" data-lang-key="about_phil_text">
-                        Ми створюємо не просто ігри, ми створюємо світи. Наша місія — стерти межу між кінематографом та інтерактивними розвагами. Кожен піксель, кожен звук і кожен рядок коду спрямовані на те, щоб викликати справжні емоції.
-                    </p>
+        <div class="credits-page">
+            <section class="credits-section">
+            <div class="credits-hero">
+                <div class="credits-hero-inner">
+                    <h2 class="section-title reveal">
+                        <span class="white" data-lang-key="credits_title_white">НАША</span>
+                        <span class="red" data-lang-key="credits_title_red">ПРИСТРАСТЬ</span>
+                    </h2>
+                    <p class="credits-hero-tagline reveal" data-lang-key="credits_hero_tagline">Портфоліо на межі кіно та інтерактиву — аналіз ігор, рецензії та візуальна подача в одному просторі.</p>
                 </div>
-                <div class="reveal" style="background: url('assets/cyber-poster.jpg') center/cover; filter: grayscale(80%); min-height: 300px; border-radius: var(--radius-md);"></div>
             </div>
 
-            <h3 style="font-size: 1.5rem; border-left: 4px solid var(--accent); padding-left: 1rem; margin: 4rem 0 2rem; letter-spacing: 2px;" class="reveal" data-lang-key="team_title">КЕРІВНИЦТВО</h3>
-            <div class="credits-container">
-                <article class="credits-row reveal">
-                    <div class="credits-label" data-lang-key="credits_lead_label">ГОЛОВНИЙ РОЗРОБНИК</div>
-                    <div class="credits-line"></div>
-                    <div class="credits-data red-accent">veyka</div>
-                </article>
+            <div class="credits-inner">
+                <h3 class="credits-subsection-title reveal" data-lang-key="credits_section_stats">У ЦИФРАХ</h3>
+                <div class="credits-stats reveal" data-credits-stats>
+                    <article class="credits-stat-card">
+                        <span class="credits-stat-value" data-stat-target="9">0</span>
+                        <span class="credits-stat-label" data-lang-key="credits_stat_games_label">Ігор у архіві</span>
+                    </article>
+                    <article class="credits-stat-card">
+                        <span class="credits-stat-value" data-stat-target="4">0</span>
+                        <span class="credits-stat-label" data-lang-key="credits_stat_news_label">Матеріалів у новинах</span>
+                    </article>
+                    <article class="credits-stat-card credits-stat-card--static">
+                        <span class="credits-stat-value credits-stat-value--year">2026</span>
+                        <span class="credits-stat-label" data-lang-key="credits_stat_year_label">Рік проєкту</span>
+                    </article>
+                </div>
 
-                <article class="credits-row reveal">
-                    <div class="credits-label" data-lang-key="credits_stack_label">ТЕХНОЛОГІЧНИЙ СТЕК</div>
-                    <div class="credits-line"></div>
-                    <div class="credits-data">
-                        <span>HTML5</span> / <span>CSS3</span> / <span class="red-accent">JS ES6+</span>
-                    </div>
-                </article>
+                <div class="credits-about-grid">
+                    <article class="credits-about-text reveal">
+                        <h3 class="credits-block-title" data-lang-key="about_phil_title">ФІЛОСОФІЯ</h3>
+                        <p class="credits-prose" data-lang-key="about_phil_text">
+                            Ми створюємо не просто ігри, ми створюємо світи. Наша місія — стерти межу між кінематографом та інтерактивними розвагами. Кожен піксель, кожен звук і кожен рядок коду спрямовані на те, щоб викликати справжні емоції.
+                        </p>
+                    </article>
+                    <figure class="credits-about-figure reveal">
+                        <div class="credits-about-image" role="img" aria-hidden="true"></div>
+                    </figure>
+                </div>
 
-                <article class="credits-row reveal">
-                    <div class="credits-label" data-lang-key="credits_aesthetic_label">ВІЗУАЛЬНИЙ СТИЛЬ</div>
-                    <div class="credits-line"></div>
-                    <div class="credits-data" data-lang-key="credits_aesthetic_value">Cinematic Dark Mode</div>
-                </article>
+                <h3 class="credits-subsection-title reveal" data-lang-key="credits_timeline_title">ХРОНОЛОГІЯ</h3>
+                <ol class="credits-timeline reveal">
+                    <li class="credits-timeline-item">
+                        <span class="credits-timeline-dot"></span>
+                        <div class="credits-timeline-body">
+                            <span class="credits-timeline-year" data-lang-key="credits_timeline_step1_title">2025</span>
+                            <p class="credits-timeline-desc" data-lang-key="credits_timeline_step1_text">Концепція портфоліо, дизайн-система та перші матеріали.</p>
+                        </div>
+                    </li>
+                    <li class="credits-timeline-item">
+                        <span class="credits-timeline-dot"></span>
+                        <div class="credits-timeline-body">
+                            <span class="credits-timeline-year" data-lang-key="credits_timeline_step2_title">2026</span>
+                            <p class="credits-timeline-desc" data-lang-key="credits_timeline_step2_text">Публічний запуск Cinematic Shadows та розширення архіву.</p>
+                        </div>
+                    </li>
+                </ol>
+
+                <h3 class="credits-subsection-title reveal" data-lang-key="credits_section_stack_heading">СТЕК І ІНСТРУМЕНТИ</h3>
+                <div class="credits-badge-grid reveal">
+                    <span class="credits-badge">HTML5</span>
+                    <span class="credits-badge">CSS3</span>
+                    <span class="credits-badge">JavaScript ES6+</span>
+                    <span class="credits-badge">View Transitions API</span>
+                </div>
+
+                <h3 class="credits-subsection-title reveal" data-lang-key="credits_section_team_heading">КОМАНДА ТА ПРО ПРОЄКТ</h3>
+                <div class="credits-meta-grid reveal">
+                    <article class="credits-meta-card">
+                        <p class="credits-meta-label" data-lang-key="credits_lead_label">ГОЛОВНИЙ РОЗРОБНИК</p>
+                        <p class="credits-meta-value credits-meta-value--accent">veyka</p>
+                    </article>
+                    <article class="credits-meta-card">
+                        <p class="credits-meta-label" data-lang-key="credits_type_label">ТИП ПРОЄКТУ</p>
+                        <p class="credits-meta-value" data-lang-key="credits_type_value">Практична Робота №4</p>
+                    </article>
+                    <article class="credits-meta-card">
+                        <p class="credits-meta-label" data-lang-key="credits_aesthetic_label">ВІЗУАЛЬНИЙ СТИЛЬ</p>
+                        <p class="credits-meta-value" data-lang-key="credits_aesthetic_value">Cinematic Dark Mode</p>
+                    </article>
+                </div>
             </div>
-        </section>
+            </section>
+        </div>
     </main>
 
     <footer>
-        <div class="footer-content">
-            <p>&copy; 2026 <span class="red">Cinematic Shadows</span>. <span data-lang-key="footer_rights">Всі права
-                    захищено.</span></p>
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" data-lang-key="site_logo">CINEMATIC SHADOWS</a>
+                    <p data-lang-key="footer_desc">Імерсивний геймінговий портфоліо. Аналіз, рецензії та любов до ігрового мистецтва.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 data-lang-key="footer_nav_title">НАВІГАЦІЯ</h4>
+                    <a href="index.html" data-lang-key="nav_home">Головна</a>
+                    <a href="archive.html" data-lang-key="nav_archive">Архів</a>
+                    <a href="news.html" data-lang-key="nav_news">Новини</a>
+                    <a href="credits.html" data-lang-key="nav_credits">Творці</a>
+                </div>
+                <div class="footer-col">
+                    <h4 data-lang-key="footer_stack_title">ТЕХНОЛОГІЇ</h4>
+                    <span>HTML5</span>
+                    <span>CSS3</span>
+                    <span>JavaScript ES6+</span>
+                    <span>View Transitions API</span>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 <span class="red">Cinematic Shadows</span>. <span data-lang-key="footer_rights">Всі права захищено.</span></p>
+                <p class="footer-made" data-lang-key="footer_made">Побудовано з ♥ на HTML5 / CSS3 / JS</p>
+            </div>
         </div>
     </footer>
 

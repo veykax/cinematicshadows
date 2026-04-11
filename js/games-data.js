@@ -1,0 +1,200 @@
+export const gamesData = {
+    'resident-evil': {
+        title: 'Resident Evil',
+        subtitleUk: 'Хоррор виживання нового рівня',
+        subtitleEn: 'Survival Horror Evolved',
+        descKey: 'game_re_desc',
+        cardImage: 'assets/re-poster.jpg',
+        heroImage: 'assets/re-bg.jpg',
+        color: '#ff4d4d',
+        featuresUk: ['Імерсивна атмосфера', 'Складні головоломки', 'Реалістична графіка'],
+        featuresEn: ['Immersive atmosphere', 'Challenging puzzles', 'Realistic visuals'],
+        release: '2023',
+        developer: 'Capcom',
+        nextGame: 'tlou',
+        review: {
+            score: '9/10',
+            quoteUk: '«Зразок хорору виживання»',
+            quoteEn: '"A masterclass in survival horror."',
+            source: 'IGN'
+        },
+        specs: { min: 'Intel Core i5-7500 / 8GB RAM / GTX 1050 Ti', rec: 'Intel Core i7-8700 / 16GB RAM / GTX 1070' },
+        edition: 'Deluxe Edition'
+    },
+    'tlou': {
+        title: 'The Last of Us',
+        subtitleUk: 'Надія у світі, що розвалюється',
+        subtitleEn: 'Hope in a Broken World',
+        descKey: 'game_tlou_desc',
+        cardImage: 'assets/tlou-poster.jpg',
+        heroImage: 'assets/tlou-bg.jpg',
+        color: '#4caf50',
+        featuresUk: ['Глибокий сюжет', 'Стелс-механіка', 'Незабутні персонажі'],
+        featuresEn: ['Deep narrative', 'Stealth mechanics', 'Memorable characters'],
+        release: '2013 / 2022',
+        developer: 'Naughty Dog',
+        nextGame: 'metro',
+        review: {
+            score: '10/10',
+            quoteUk: '«Шедевр оповідання»',
+            quoteEn: '"A masterpiece of storytelling."',
+            source: 'IGN'
+        },
+        specs: { min: 'Intel Core i7-4770K / 16GB RAM / GTX 970', rec: 'Intel Core i7-8700 / 32GB RAM / RTX 2070' },
+        edition: 'Part I - Digital Deluxe'
+    },
+    'metro': {
+        title: 'Metro',
+        subtitleUk: 'Страх перед майбутнім',
+        subtitleEn: 'Fear the Future',
+        descKey: 'game_metro_desc',
+        cardImage: 'assets/metro-poster.jpg',
+        heroImage: 'assets/metro-bg.jpg',
+        color: '#ff9800',
+        featuresUk: ['Унікальний сеттинг', 'Тактичний геймплей', 'Моральні вибори'],
+        featuresEn: ['Unique setting', 'Tactical gameplay', 'Moral choices'],
+        release: '2019',
+        developer: '4A Games',
+        nextGame: 'cyberpunk',
+        review: {
+            score: '8.5/10',
+            quoteUk: '«Атмосферний і захопливий шутер»',
+            quoteEn: '"Atmospheric and immersive shooter."',
+            source: 'GameSpot'
+        },
+        specs: { min: 'Intel Core i5-4440 / 8GB RAM / GTX 1050', rec: 'Intel Core i7-4770K / 8GB RAM / RTX 2060' },
+        edition: 'Gold Edition'
+    },
+    'cyberpunk': {
+        title: 'Cyberpunk 2077',
+        subtitleUk: 'Місто мрій',
+        subtitleEn: 'The City of Dreams',
+        descKey: 'game_cyberpunk_desc',
+        cardImage: 'assets/cyber-poster.jpg',
+        heroImage: 'assets/cyber-bg.jpg',
+        color: '#f1c40f',
+        featuresUk: ['Відкритий світ', 'Кібернетичні імпланти', 'Нелінійність'],
+        featuresEn: ['Open world', 'Cybernetic implants', 'Non-linear story'],
+        release: '2020',
+        developer: 'CD Projekt RED',
+        nextGame: 'ghost',
+        review: {
+            score: '9/10',
+            quoteUk: '«Величезна й захоплива RPG»',
+            quoteEn: '"A breathtaking, sprawling RPG."',
+            source: 'PC Gamer'
+        },
+        specs: { min: 'Intel Core i7-6700 / 16GB RAM / GTX 1060', rec: 'Intel Core i7-12700 / 16GB RAM / RTX 2060' },
+        edition: 'Ultimate Edition'
+    },
+    'ghost': {
+        title: 'Ghost of Tsushima',
+        subtitleUk: 'Традиція проти новаторства',
+        subtitleEn: 'Tradition vs Innovation',
+        descKey: 'game_ghost_desc',
+        cardImage: 'assets/got-poster.png',
+        heroImage: 'assets/got-bg.jpg',
+        color: '#e0e0e0',
+        featuresUk: ['Мистецтво меча', 'Фоторежим', 'Японська естетика'],
+        featuresEn: ['Sword combat art', 'Photo mode', 'Japanese aesthetics'],
+        release: '2020',
+        developer: 'Sucker Punch',
+        nextGame: 'elden-ring',
+        review: {
+            score: '9/10',
+            quoteUk: '«Вражаюче красивий відкритий світ»',
+            quoteEn: '"A stunningly beautiful open-world."',
+            source: 'Destructoid'
+        },
+        specs: { min: 'Intel Core i3-7100 / 8GB RAM / GTX 960', rec: 'Intel Core i5-8600 / 16GB RAM / RTX 2060' },
+        edition: 'Director\'s Cut'
+    },
+    'elden-ring': {
+        title: 'Elden Ring',
+        subtitleUk: 'Постань, Погаслий',
+        subtitleEn: 'Rise, Tarnished',
+        descKey: 'game_elden_desc',
+        cardImage: 'assets/elden-poster.jpg',
+        heroImage: 'assets/elden-bg.jpg',
+        color: '#d4af37',
+        featuresUk: ['Складні боси', 'Величезний світ', 'Магія та зброя'],
+        featuresEn: ['Challenging bosses', 'Vast world', 'Magic and weapons'],
+        release: '2022',
+        developer: 'FromSoftware',
+        nextGame: 'gow',
+        review: {
+            score: '10/10',
+            quoteUk: '«Віха в дизайні ігор»',
+            quoteEn: '"An absolute milestone in game design."',
+            source: 'IGN'
+        },
+        specs: { min: 'Intel Core i5-8400 / 12GB RAM / GTX 1060', rec: 'Intel Core i7-8700K / 16GB RAM / GTX 1070' },
+        edition: 'Shadow of the Erdtree Edition'
+    },
+    'gow': {
+        title: 'God of War',
+        subtitleUk: 'Батько й син',
+        subtitleEn: 'Father and Son',
+        descKey: 'game_gow_desc',
+        cardImage: 'assets/gow-poster.jpg',
+        heroImage: 'assets/gow-bg.jpg',
+        color: '#cc0000',
+        featuresUk: ['Епічна боївка', 'Скандинавські міфи', 'Батьківство'],
+        featuresEn: ['Epic combat', 'Norse mythology', 'Fatherhood'],
+        release: '2018 / 2022',
+        developer: 'Santa Monica Studio',
+        nextGame: 'horizon',
+        review: {
+            score: '10/10',
+            quoteUk: '«Один із найзахопливіших світів»',
+            quoteEn: '"One of the most engrossing worlds ever."',
+            source: 'Polygon'
+        },
+        specs: { min: 'Intel Core i5-2500K / 8GB RAM / GTX 960', rec: 'Intel Core i5-6600K / 8GB RAM / GTX 1060' },
+        edition: 'Digital Deluxe Edition'
+    },
+    'horizon': {
+        title: 'Horizon',
+        subtitleUk: 'Світанок машин',
+        subtitleEn: 'Machine Dawn',
+        descKey: 'game_horizon_desc',
+        cardImage: 'assets/horzion-poster.jpg',
+        heroImage: 'assets/horizon-bg.jpg',
+        color: '#00bcd4',
+        featuresUk: ['Полювання на машин', 'Прекрасний світ', 'Таємниці минулого'],
+        featuresEn: ['Machine hunting', 'Beautiful world', 'Secrets of the past'],
+        release: '2017 / 2020',
+        developer: 'Guerrilla Games',
+        nextGame: 'witcher',
+        review: {
+            score: '8.9/10',
+            quoteUk: '«Візуальне диво й чудовий бій»',
+            quoteEn: '"A visual marvel with fantastic combat."',
+            source: 'IGN'
+        },
+        specs: { min: 'Intel Core i5-2500K / 8GB RAM / GTX 780', rec: 'Intel Core i7-4770K / 16GB RAM / GTX 1060' },
+        edition: 'Complete Edition'
+    },
+    'witcher': {
+        title: 'The Witcher 3',
+        subtitleUk: 'Дике Полювання',
+        subtitleEn: 'Wild Hunt',
+        descKey: 'game_witcher_desc',
+        cardImage: 'assets/witcher-poster.jpg',
+        heroImage: 'assets/witcher-bg.jpg',
+        color: '#9c27b0',
+        featuresUk: ['Величезний квест', 'Чудовиська', 'Відьмацьке чуття'],
+        featuresEn: ['Huge questline', 'Monsters', 'Witcher senses'],
+        release: '2015',
+        developer: 'CD Projekt RED',
+        nextGame: 'resident-evil',
+        review: {
+            score: '10/10',
+            quoteUk: '«Еталон ігор з відкритим світом»',
+            quoteEn: '"A benchmark for open-world games."',
+            source: 'GameSpot'
+        },
+        specs: { min: 'Intel Core i5-2500K / 6GB RAM / GTX 660', rec: 'Intel Core i7-3770 / 8GB RAM / GTX 770' },
+        edition: 'Game of the Year Edition'
+    }
+};
